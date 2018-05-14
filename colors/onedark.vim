@@ -14,6 +14,8 @@
 " +---------------------------------------------+
 " |  Color Name  |         RGB        |   Hex   |
 " |--------------+--------------------+---------|
+" | Dark Black   | rgb(34, 38, 45)    | #22262d |
+" |--------------+--------------------+---------|
 " | Black        | rgb(40, 44, 52)    | #282c34 |
 " |--------------+--------------------+---------|
 " | White        | rgb(171, 178, 191) | #abb2bf |
@@ -142,6 +144,7 @@ let s:purple = s:colors.purple
 let s:cyan = s:colors.cyan
 let s:white = s:colors.white
 let s:black = s:colors.black
+let s:dark_black = s:colors.dark_black
 let s:visual_black = s:colors.visual_black " Black out selected text in 16-color visual mode
 let s:comment_grey = s:colors.comment_grey
 let s:gutter_fg_grey = s:colors.gutter_fg_grey
@@ -194,16 +197,16 @@ call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; most
 " }}}
 
 " Highlighting Groups (descriptions and ordering from `:h highlight-groups`) {{{
-call s:h("ColorColumn", { "bg": s:cursor_grey }) " used for the columns set with 'colorcolumn'
+call s:h("ColorColumn", { "bg": s:dark_black }) " used for the columns set with 'colorcolumn'
 call s:h("Conceal", {}) " placeholder characters substituted for concealed text (see 'conceallevel')
 call s:h("Cursor", { "fg": s:black, "bg": s:blue }) " the character under the cursor
 call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
-call s:h("CursorColumn", { "bg": s:cursor_grey }) " the screen column that the cursor is in when 'cursorcolumn' is set
-if &diff
+call s:h("CursorColumn", { "bg": s:dark_black }) " the screen column that the cursor is in when 'cursorcolumn' is set
+if &diff || &foldmethod == 'diff'
   " Don't change the background color in diff mode
   call s:h("CursorLine", { "gui": "underline" }) " the screen line that the cursor is in when 'cursorline' is set
 else
-  call s:h("CursorLine", { "bg": s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
+  call s:h("CursorLine", { "bg": s:dark_black }) " the screen line that the cursor is in when 'cursorline' is set
 endif
 call s:h("Directory", { "fg": s:blue }) " directory names (and other special names in listings)
 call s:h("DiffAdd", { "bg": s:green, "fg": s:black }) " diff mode: Added line
@@ -212,10 +215,10 @@ call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
 call s:h("DiffText", { "bg": s:black, "fg": s:yellow }) " diff mode: Changed text within a changed line
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
-call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
+call s:h("Folded", { "fg": s:comment_grey, "bg": s:cursor_grey }) " line used for closed folds
 call s:h("FoldColumn", {}) " 'foldcolumn'
 call s:h("SignColumn", {}) " column where signs are displayed
-call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
+call s:h("IncSearch", { "fg": s:green, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen", { "fg": s:blue, "gui": "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
@@ -228,13 +231,14 @@ call s:h("PmenuSel", { "fg": s:black, "bg": s:blue }) " Popup menu: selected ite
 call s:h("PmenuSbar", { "bg": s:special_grey }) " Popup menu: scrollbar.
 call s:h("PmenuThumb", { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
 call s:h("Question", { "fg": s:purple }) " hit-enter prompt and yes/no questions
-call s:h("Search", { "fg": s:black, "bg": s:yellow }) " Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-call s:h("QuickFixLine", { "fg": s:black, "bg": s:yellow }) " Current quickfix item in the quickfix window.
+call s:h("Search", { "fg": s:black, "bg": s:comment_grey }) " Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+call s:h("ESearchMatch", { "fg": s:black, "bg": s:comment_grey })
+call s:h("QuickFixLine", {}) " Current quickfix item in the quickfix window.
 call s:h("SpecialKey", { "fg": s:special_grey }) " Meta and special keys listed with ":map", also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
-call s:h("SpellBad", { "fg": s:red, "gui": "underline", "cterm": "underline" }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
-call s:h("SpellCap", { "fg": s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
-call s:h("SpellLocal", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
-call s:h("SpellRare", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
+call s:h("SpellBad", { "gui": "underline", "cterm": "underline" }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
+call s:h("SpellCap", { "gui": "underline", "cterm": "underline" }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
+call s:h("SpellLocal", { "gui": "underline", "cterm": "underline" }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
+call s:h("SpellRare", { "gui": "underline", "cterm": "underline" }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
 call s:h("StatusLine", { "fg": s:white, "bg": s:cursor_grey }) " status line of current window
 call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 call s:h("TabLine", { "fg": s:comment_grey }) " tab pages line, not active tab page label
@@ -245,7 +249,11 @@ call s:h("Visual", { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode 
 call s:h("VisualNOS", { "bg": s:visual_grey }) " Visual mode selection when vim is "Not Owning the Selection". Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h("WarningMsg", { "fg": s:yellow }) " warning messages
 call s:h("WildMenu", { "fg": s:black, "bg": s:blue }) " current match in 'wildmenu' completion
+call s:h("WinNormalNC", { "fg": s:comment_grey, "bg": s:black })
+call s:h("HighlightedyankRegion", { "bg": s:comment_grey })
 
+" highlight WinNormalNC guibg='#22262d' guifg='#777777'
+" highlight HighlightedyankRegion guibg='#565c64'
 " }}}
 
 " Language-Specific Highlighting {{{
@@ -265,7 +273,7 @@ call s:h("cssImportant", { "fg": s:purple })
 call s:h("cssInclude", { "fg": s:white })
 call s:h("cssIncludeKeyword", { "fg": s:purple })
 call s:h("cssMediaType", { "fg": s:dark_yellow })
-call s:h("cssProp", { "fg": s:white })
+call s:h("cssProp", { "fg": s:red })
 call s:h("cssPseudoClassId", { "fg": s:dark_yellow })
 call s:h("cssSelectorOp", { "fg": s:purple })
 call s:h("cssSelectorOp2", { "fg": s:purple })
@@ -559,3 +567,4 @@ endif
 " Must appear at the end of the file to work around this oddity:
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
 set background=dark
+set winhighlight=NormalNC:WinNormalNC
