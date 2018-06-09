@@ -499,7 +499,7 @@ call s:h("EasyMotionShade",  { "fg": s:comment_grey })
 
 " mhinz/vim-signify
 call s:h("SignifySignAdd", { "fg": s:green })
-call s:h("SignifySignChange", { "fg": s:yellow })
+call s:h("SignifySignChange", { "fg": s:purple })
 call s:h("SignifySignDelete", { "fg": s:red })
 
 " neomake/neomake
