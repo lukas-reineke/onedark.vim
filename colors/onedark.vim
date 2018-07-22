@@ -66,7 +66,7 @@ endif
 
 " Not all terminals support italics properly. If yours does, opt-in.
 if !exists("g:onedark_terminal_italics")
-  let g:onedark_terminal_italics = 0
+  let g:onedark_terminal_italics = 1
 endif
 
 " This function is based on one from FlatColor: https://github.com/MaxSt/FlatColor/
@@ -158,9 +158,9 @@ let s:vertsplit = s:colors.vertsplit
 
 " Syntax Groups (descriptions and ordering from `:h w18`) {{{
 
-call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
+call s:h("Comment", { "fg": s:comment_grey, "gui": "italic,bold" }) " any comment
 call s:h("Constant", { "fg": s:cyan }) " any constant
-call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
+call s:h("String", { "fg": s:green, "gui": "italic" }) " a string constant: "this is a string"
 call s:h("Character", { "fg": s:green }) " a character constant: 'c', '\n'
 call s:h("Number", { "fg": s:dark_yellow }) " a number constant: 234, 0xff
 call s:h("Boolean", { "fg": s:dark_yellow }) " a boolean constant: TRUE, false
@@ -187,9 +187,12 @@ call s:h("Special", { "fg": s:blue }) " any special symbol
 call s:h("SpecialChar", {}) " special character in a constant
 call s:h("Tag", {}) " you can use CTRL-] on this
 call s:h("Delimiter", {}) " character that needs attention
-call s:h("SpecialComment", { "fg": s:comment_grey }) " special things inside a comment
+call s:h("SpecialComment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " special things inside a comment
 call s:h("Debug", {}) " debugging statements
 call s:h("Underlined", { "gui": "underline", "cterm": "underline" }) " text that stands out, HTML links
+call s:h("Bold", { "gui": "bold", "cterm": "bold" }) " text that stands out, HTML links
+call s:h("CursorWord0", { "gui": "bold", "cterm": "bold" })
+call s:h("CursorWord1", { "gui": "bold", "cterm": "bold" })
 call s:h("Ignore", {}) " left blank, hidden
 call s:h("Error", { "fg": s:red }) " any erroneous construct
 call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -338,7 +341,7 @@ call s:h("javascriptEndColons", { "fg": s:white })
 call s:h("javascriptExport", { "fg": s:purple })
 call s:h("javascriptFuncArg", { "fg": s:white })
 call s:h("javascriptFuncKeyword", { "fg": s:purple })
-call s:h("javascriptIdentifier", { "fg": s:red })
+call s:h("javascriptIdentifier", { "fg": s:red, "gui": "bold" })
 call s:h("javascriptImport", { "fg": s:purple })
 call s:h("javascriptMethodName", { "fg": s:white })
 call s:h("javascriptObjectLabel", { "fg": s:white })
@@ -347,6 +350,11 @@ call s:h("javascriptOpSymbols", { "fg": s:cyan })
 call s:h("javascriptPropertyName", { "fg": s:green })
 call s:h("javascriptTemplateSB", { "fg": s:dark_red })
 call s:h("javascriptVariable", { "fg": s:purple })
+call s:h("javascriptDOMEventTargetMethod", { "fg": s:red, "gui": "bold" })
+call s:h("javascriptDOMDocMethod", { "fg": s:red, "gui": "bold" })
+call s:h("javascriptComment", { "fg": s:comment_grey, "gui": "italic,bold" })
+call s:h("javascriptLineComment", { "fg": s:gutter_fg_grey, "gui": "italic,bold" })
+call s:h("javascriptString", { "fg": s:green, "gui": "italic" })
 
 " JSON
 call s:h("jsonCommentError", { "fg": s:white })
@@ -357,7 +365,7 @@ call s:h("jsonQuote", { "fg": s:white })
 call s:h("jsonMissingCommaError", { "fg": s:red, "gui": "reverse" })
 call s:h("jsonNoQuotesError", { "fg": s:red, "gui": "reverse" })
 call s:h("jsonNumError", { "fg": s:red, "gui": "reverse" })
-call s:h("jsonString", { "fg": s:green })
+call s:h("jsonString", { "fg": s:green, "gui": "italic" })
 call s:h("jsonStringSQError", { "fg": s:red, "gui": "reverse" })
 call s:h("jsonSemicolonError", { "fg": s:red, "gui": "reverse" })
 
@@ -511,11 +519,12 @@ call s:h("NeomakeInfoSign", { "fg": s:blue })
 call s:h("diffAdded", { "fg": s:green })
 call s:h("diffRemoved", { "fg": s:red })
 
+
 " }}}
 
 " Git Highlighting {{{
 
-call s:h("gitcommitComment", { "fg": s:comment_grey })
+call s:h("gitcommitComment", { "fg": s:gutter_fg_grey, "gui": "italic,bold" })
 call s:h("gitcommitUnmerged", { "fg": s:green })
 call s:h("gitcommitOnBranch", {})
 call s:h("gitcommitBranch", { "fg": s:purple })
@@ -563,6 +572,20 @@ if has("nvim")
 endif
 
 " }}}
+
+" numirias/semshi
+function SemshiOverwrite()
+    call s:h("semshiImported", { "fg": s:dark_yellow, "gui": "bold,italic", "cterm": "bold,italic" })
+    call s:h("semshiSelected", { "gui": "bold" })
+    call s:h("semshiParameterUnused", { "fg": s:dark_red, "gui": "underline,bold" })
+    call s:h("semshiSelf", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold"  })
+    call s:h("semshiBuiltin", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
+    call s:h("semshiAttribute", { "fg": s:red })
+    call s:h("semshiGlobal", { "fg": s:dark_red, "gui": "bold", "cterm": "bold" })
+    call s:h("semshiUnresolved", { "fg": s:white, "bg": s:black, "gui": "NONE" }) " normal text
+    call s:h("pythonComment", { "fg": s:comment_grey, "gui": "italic,bold" }) " normal text
+endfunction
+autocmd FileType python call SemshiOverwrite()
 
 " Must appear at the end of the file to work around this oddity:
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
