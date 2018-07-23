@@ -252,7 +252,7 @@ call s:h("Visual", { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode 
 call s:h("VisualNOS", { "bg": s:visual_grey }) " Visual mode selection when vim is "Not Owning the Selection". Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h("WarningMsg", { "fg": s:yellow }) " warning messages
 call s:h("WildMenu", { "fg": s:black, "bg": s:blue }) " current match in 'wildmenu' completion
-call s:h("WinNormalNC", { "fg": s:comment_grey, "bg": s:black })
+call s:h("WinNormalNC", { "fg": s:comment_grey, "bg": s:dark_black })
 call s:h("HighlightedyankRegion", { "bg": s:comment_grey })
 
 " highlight WinNormalNC guibg='#22262d' guifg='#777777'
