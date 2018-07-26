@@ -519,6 +519,8 @@ call s:h("NeomakeInfoSign", { "fg": s:blue })
 call s:h("diffAdded", { "fg": s:green })
 call s:h("diffRemoved", { "fg": s:red })
 
+" kshenoy/vim-signature
+call s:h("SignatureMarkText", { "fg": s:dark_red, "gui": "bold" })
 
 " }}}
 
