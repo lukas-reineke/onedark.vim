@@ -236,7 +236,7 @@ call s:h("PmenuThumb", { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
 call s:h("Question", { "fg": s:purple }) " hit-enter prompt and yes/no questions
 call s:h("Search", { "fg": s:black, "bg": s:comment_grey }) " Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 call s:h("ESearchMatch", { "fg": s:black, "bg": s:comment_grey })
-call s:h("QuickFixLine", {}) " Current quickfix item in the quickfix window.
+call s:h("QuickFixLine", { "gui": "bold" }) " Current quickfix item in the quickfix window.
 call s:h("SpecialKey", { "fg": s:special_grey }) " Meta and special keys listed with ":map", also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
 call s:h("SpellBad", { "gui": "underline", "cterm": "underline" }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
 call s:h("SpellCap", { "gui": "underline", "cterm": "underline" }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
@@ -478,6 +478,8 @@ call s:h("scssInclude", { "fg": s:purple })
 call s:h("scssMixin", { "fg": s:purple })
 call s:h("scssSelectorName", { "fg": s:dark_yellow })
 call s:h("scssVariable", { "fg": s:purple })
+call s:h("scssProperty", { "fg": s:red })
+call s:h("scssAttribute", { "fg": s:cyan })
 
 " TypeScript
 call s:h("typescriptReserved", { "fg": s:purple })
@@ -521,6 +523,8 @@ call s:h("diffRemoved", { "fg": s:red })
 
 " kshenoy/vim-signature
 call s:h("SignatureMarkText", { "fg": s:dark_red, "gui": "bold" })
+
+call s:h("illuminatedWord", { "gui": "bold" })
 
 " }}}
 
