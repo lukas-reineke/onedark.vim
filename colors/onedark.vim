@@ -390,7 +390,7 @@ call s:h("markdownH6", { "fg": s:red })
 call s:h("markdownIdDelimiter", { "fg": s:purple })
 call s:h("markdownId", { "fg": s:purple })
 call s:h("markdownBlockquote", { "fg": s:comment_grey })
-call s:h("markdownItalic", { "fg": s:purple, "gui": "italic", "cterm": "italic" })
+call s:h("markdownItalic", { "gui": "italic", "cterm": "italic" })
 call s:h("markdownBold", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
 call s:h("markdownListMarker", { "fg": s:red })
 call s:h("markdownOrderedListMarker", { "fg": s:red })
@@ -516,6 +516,10 @@ call s:h("SignifySignDelete", { "fg": s:red })
 call s:h("NeomakeWarningSign", { "fg": s:yellow })
 call s:h("NeomakeErrorSign", { "fg": s:red })
 call s:h("NeomakeInfoSign", { "fg": s:blue })
+
+" Ale
+call s:h("ALEError", { "fg": s:red, "gui": "bold" })
+call s:h("ALEWarning", { "fg": s:purple, "gui": "bold" })
 
 " tpope/vim-fugitive
 call s:h("diffAdded", { "fg": s:green })
