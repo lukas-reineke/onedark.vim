@@ -194,7 +194,7 @@ call s:h("Bold", { "gui": "bold", "cterm": "bold" }) " text that stands out, HTM
 call s:h("CursorWord0", { "gui": "bold", "cterm": "bold" })
 call s:h("CursorWord1", { "gui": "bold", "cterm": "bold" })
 call s:h("Ignore", {}) " left blank, hidden
-call s:h("Error", { "fg": s:red }) " any erroneous construct
+call s:h("Error", { "fg": s:dark_red }) " any erroneous construct
 call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 " }}}
@@ -518,7 +518,7 @@ call s:h("NeomakeErrorSign", { "fg": s:red })
 call s:h("NeomakeInfoSign", { "fg": s:blue })
 
 " Ale
-call s:h("ALEError", { "fg": s:red, "gui": "bold" })
+call s:h("ALEError", { "fg": s:dark_red, "gui": "bold" })
 call s:h("ALEWarning", { "fg": s:purple, "gui": "bold" })
 
 " tpope/vim-fugitive
@@ -526,7 +526,7 @@ call s:h("diffAdded", { "fg": s:green })
 call s:h("diffRemoved", { "fg": s:red })
 
 " kshenoy/vim-signature
-call s:h("SignatureMarkText", { "fg": s:dark_red, "gui": "bold" })
+call s:h("SignatureMarkText", { "fg": s:blue, "gui": "bold" })
 
 call s:h("illuminatedWord", { "gui": "bold" })
 
@@ -591,7 +591,7 @@ function SemshiOverwrite()
     call s:h("semshiSelf", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold"  })
     call s:h("semshiBuiltin", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
     call s:h("semshiAttribute", { "fg": s:red })
-    call s:h("semshiGlobal", { "fg": s:dark_red, "gui": "bold", "cterm": "bold" })
+    call s:h("semshiGlobal", { "fg": s:cyan, "gui": "bold", "cterm": "bold" })
     call s:h("semshiUnresolved", { "fg": s:white, "bg": s:black, "gui": "NONE" }) " normal text
     call s:h("pythonComment", { "fg": s:comment_grey, "gui": "italic,bold" }) " normal text
 endfunction

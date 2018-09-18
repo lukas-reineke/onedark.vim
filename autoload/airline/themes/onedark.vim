@@ -72,7 +72,7 @@ function! airline#themes#onedark#refresh()
   " Warning/Error styling code from vim-airline's ["base16" theme](https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/base16.vim)
 
   " Warnings
-  let s:WI = [ s:colors.black.gui, s:colors.yellow.gui, s:term_black, s:term_yellow ]
+  let s:WI = [ s:colors.purple.gui, s:colors.dark_black.gui, s:term_black, s:term_yellow ]
   let g:airline#themes#onedark#palette.normal.airline_warning = [
        \ s:WI[0], s:WI[1], s:WI[2], s:WI[3]
        \ ]
@@ -99,7 +99,7 @@ function! airline#themes#onedark#refresh()
       \ g:airline#themes#onedark#palette.normal.airline_warning
 
   " Errors
-  let s:ER = [ s:colors.black.gui, s:colors.red.gui, s:term_black, s:term_red ]
+  let s:ER = [ s:colors.dark_red.gui, s:colors.dark_black.gui, s:term_black, s:term_red ]
   let g:airline#themes#onedark#palette.normal.airline_error = [
        \ s:ER[0], s:ER[1], s:ER[2], s:ER[3]
        \ ]
