@@ -137,6 +137,9 @@ let s:colors = onedark#GetColors()
 let s:red = s:colors.red
 let s:dark_red = s:colors.dark_red
 let s:green = s:colors.green
+let s:diff_red = s:colors.diff_red
+let s:diff_green = s:colors.diff_green
+let s:diff_yellow = s:colors.diff_yellow
 let s:yellow = s:colors.yellow
 let s:dark_yellow = s:colors.dark_yellow
 let s:blue = s:colors.blue
@@ -212,10 +215,10 @@ else
   call s:h("CursorLine", { "bg": s:dark_black }) " the screen line that the cursor is in when 'cursorline' is set
 endif
 call s:h("Directory", { "fg": s:blue }) " directory names (and other special names in listings)
-call s:h("DiffAdd", { "bg": s:green, "fg": s:black }) " diff mode: Added line
-call s:h("DiffChange", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed line
-call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
-call s:h("DiffText", { "bg": s:black, "fg": s:yellow }) " diff mode: Changed text within a changed line
+call s:h("DiffAdd", { "bg": s:diff_green }) " diff mode: Added line
+call s:h("DiffChange", {}) " diff mode: Changed line
+call s:h("DiffDelete", { "bg": s:diff_red, "fg": s:black }) " diff mode: Deleted line
+call s:h("DiffText", { "bg": s:diff_yellow }) " diff mode: Changed text within a changed line
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:dark_black, "bg": s:dark_black }) " the column separating vertically split windows
 call s:h("Folded", { "fg": s:comment_grey, "bg": s:cursor_grey }) " line used for closed folds
@@ -520,10 +523,6 @@ call s:h("NeomakeInfoSign", { "fg": s:blue })
 " Ale
 call s:h("ALEError", { "fg": s:dark_red, "gui": "bold" })
 call s:h("ALEWarning", { "fg": s:purple, "gui": "bold" })
-
-" tpope/vim-fugitive
-call s:h("diffAdded", { "fg": s:green })
-call s:h("diffRemoved", { "fg": s:red })
 
 " kshenoy/vim-signature
 call s:h("SignatureMarkText", { "fg": s:blue, "gui": "bold" })
