@@ -586,11 +586,11 @@ endif
 function SemshiOverwrite()
     call s:h("semshiImported", { "fg": s:dark_yellow, "gui": "bold,italic", "cterm": "bold,italic" })
     call s:h("semshiSelected", { "gui": "bold" })
-    call s:h("semshiParameterUnused", { "fg": s:dark_red, "gui": "underline,bold" })
+    call s:h("semshiParameterUnused", { "fg": s:dark_red, "gui": "bold" })
     call s:h("semshiSelf", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold"  })
-    call s:h("semshiBuiltin", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
+    call s:h("semshiBuiltin", { "fg": s:red, "gui": "bold", "cterm": "bold" })
     call s:h("semshiAttribute", { "fg": s:red })
-    call s:h("semshiGlobal", { "fg": s:cyan, "gui": "bold", "cterm": "bold" })
+    call s:h("semshiGlobal", { "fg": s:yellow, "gui": "bold,italic", "cterm": "bold" })
     call s:h("semshiUnresolved", { "fg": s:white, "bg": s:black, "gui": "NONE" }) " normal text
     call s:h("pythonComment", { "fg": s:comment_grey, "gui": "italic,bold" }) " normal text
 endfunction
