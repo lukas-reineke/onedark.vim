@@ -380,7 +380,7 @@ call s:h("lessClass", { "fg": s:dark_yellow })
 " Markdown
 call s:h("markdownCode", { "fg": s:green })
 call s:h("markdownCodeBlock", { "fg": s:green })
-call s:h("markdownCodeDelimiter", { "fg": s:green })
+call s:h("markdownCodeDelimiter", { "fg": s:comment_grey })
 call s:h("markdownHeadingDelimiter", { "fg": s:red })
 call s:h("markdownRule", { "fg": s:comment_grey })
 call s:h("markdownHeadingRule", { "fg": s:comment_grey })
