@@ -601,6 +601,8 @@ endfunction
 autocmd FileType python call SemshiOverwrite()
 
 hi link CocHighlightText Bold
+hi link gitmessengerPopupNormal WinNormalNC
+hi link CocFloating WinNormalNC
 
 " Must appear at the end of the file to work around this oddity:
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
