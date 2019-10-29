@@ -302,7 +302,6 @@ call s:h("htmlTagName", { "fg": s:red })
 " JavaScript
 call s:h("javaScriptBraces", { "fg": s:white })
 call s:h("javaScriptFunction", { "fg": s:purple })
-call s:h("javaScriptIdentifier", { "fg": s:purple })
 call s:h("javaScriptNull", { "fg": s:dark_yellow })
 call s:h("javaScriptNumber", { "fg": s:dark_yellow })
 call s:h("javaScriptRequire", { "fg": s:cyan })
@@ -488,6 +487,13 @@ call s:h("scssAttribute", { "fg": s:cyan })
 call s:h("typescriptReserved", { "fg": s:purple })
 call s:h("typescriptEndColons", { "fg": s:white })
 call s:h("typescriptBraces", { "fg": s:white })
+call s:h("typescriptImport", { "fg": s:purple })
+call s:h("typescriptExport", { "fg": s:purple })
+call s:h("typescriptIdentifier", { "fg": s:red, "gui": "bold" })
+
+" TSX
+call s:h("tsxTagName", { "fg": s:red })
+call s:h("tsxAttrib", { "fg": s:dark_yellow })
 
 " XML
 call s:h("xmlAttrib", { "fg": s:dark_yellow })
