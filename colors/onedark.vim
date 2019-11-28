@@ -490,6 +490,7 @@ call s:h("typescriptBraces", { "fg": s:white })
 call s:h("typescriptImport", { "fg": s:purple })
 call s:h("typescriptExport", { "fg": s:purple })
 call s:h("typescriptIdentifier", { "fg": s:red, "gui": "bold" })
+call s:h("typescriptDecorator", { "fg": s:dark_yellow,  "gui": "bold" })
 
 " TSX
 call s:h("tsxTagName", { "fg": s:red })
