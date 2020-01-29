@@ -566,6 +566,16 @@ hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
+call s:h("Defx_git_Untracked", { "fg": s:red })
+hi link Defx_git_4_Untracked gitcommitUntrackedFile
+hi link Defx_git_4_Ignored gitcommitSummary
+hi link Defx_git_4_Unknown gitcommitSummary
+hi link Defx_git_4_Renamed gitcommitBranch
+hi link Defx_git_4_Modified gitcommitUnmergedFile
+hi link Defx_git_4_Unmerged diffRemoved
+hi link Defx_git_4_Deleted diffRemoved
+hi link Defx_git_4_Staged diffAdded
+
 " }}}
 
 " Neovim terminal colors {{{
