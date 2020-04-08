@@ -147,6 +147,7 @@ let s:purple = s:colors.purple
 let s:cyan = s:colors.cyan
 let s:white = s:colors.white
 let s:black = s:colors.black
+let s:dimm_black = s:colors.dimm_black
 let s:dark_black = s:colors.dark_black
 let s:visual_black = s:colors.visual_black " Black out selected text in 16-color visual mode
 let s:comment_grey = s:colors.comment_grey
@@ -221,7 +222,7 @@ call s:h("DiffDelete", { "bg": s:diff_red, "fg": s:black }) " diff mode: Deleted
 call s:h("DiffText", { "bg": s:diff_yellow }) " diff mode: Changed text within a changed line
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:dark_black, "bg": s:dark_black }) " the column separating vertically split windows
-call s:h("Folded", { "fg": s:comment_grey, "bg": s:cursor_grey }) " line used for closed folds
+call s:h("Folded", { "fg": s:comment_grey, "bg": s:dimm_black }) " line used for closed folds
 call s:h("FoldColumn", {}) " 'foldcolumn'
 call s:h("SignColumn", {}) " column where signs are displayed
 call s:h("IncSearch", { "fg": s:comment_grey, "bg": s:green }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
@@ -333,7 +334,8 @@ call s:h("jsTemplateVar", { "fg": s:green })
 call s:h("jsThis", { "fg": s:red })
 call s:h("jsUndefined", { "fg": s:dark_yellow })
 " https://github.com/othree/yajs.vim
-call s:h("javascriptArrowFunc", { "fg": s:purple })
+call s:h("javascriptArrowFunc", { "fg": s:yellow })
+call s:h("javascriptArrowFuncArg", { "fg": s:yellow })
 call s:h("javascriptClassExtends", { "fg": s:purple })
 call s:h("javascriptClassKeyword", { "fg": s:purple })
 call s:h("javascriptDocNotation", { "fg": s:purple })
@@ -351,7 +353,7 @@ call s:h("javascriptOpSymbol", { "fg": s:cyan })
 call s:h("javascriptOpSymbols", { "fg": s:cyan })
 call s:h("javascriptPropertyName", { "fg": s:green })
 call s:h("javascriptTemplateSB", { "fg": s:dark_red })
-call s:h("javascriptVariable", { "fg": s:purple })
+call s:h("javascriptVariable", { "fg": s:red })
 call s:h("javascriptDOMEventTargetMethod", { "fg": s:red, "gui": "bold" })
 call s:h("javascriptDOMDocMethod", { "fg": s:red, "gui": "bold" })
 call s:h("javascriptComment", { "fg": s:comment_grey, "gui": "italic,bold" })
@@ -378,6 +380,8 @@ call s:h("lessClass", { "fg": s:dark_yellow })
 
 " Markdown
 call s:h("markdownCode", { "fg": s:green })
+call s:h("markdownCodeBlockBG", { "bg": s:dimm_black })
+call s:h("markdownCodeBlockBGBorder", { "bg": s:dark_black })
 call s:h("markdownCodeBlock", { "fg": s:green })
 call s:h("markdownCodeDelimiter", { "fg": s:comment_grey })
 call s:h("markdownHeadingDelimiter", { "fg": s:red })
@@ -491,6 +495,7 @@ call s:h("typescriptImport", { "fg": s:purple })
 call s:h("typescriptExport", { "fg": s:purple })
 call s:h("typescriptIdentifier", { "fg": s:red, "gui": "bold" })
 call s:h("typescriptDecorator", { "fg": s:dark_yellow,  "gui": "bold" })
+call s:h("typescriptAssign", { "fg": s:cyan })
 
 " TSX
 call s:h("tsxTagName", { "fg": s:red })
@@ -620,6 +625,22 @@ autocmd FileType python call SemshiOverwrite()
 hi link CocHighlightText Bold
 hi link gitmessengerPopupNormal WinNormalNC
 hi link CocFloating WinNormalNC
+
+call s:h("VimwikiHR", { "fg": s:yellow })
+call s:h("VimwikiPre", { "fg": s:cursor_grey })
+call s:h("VimwikiItalic", { "gui": "italic" })
+call s:h("VimwikiColorTagRed", { "fg": s:red })
+call s:h("VimwikiColorTagCyan", { "fg": s:cyan })
+call s:h("VimwikiColorTagGreen", { "fg": s:green })
+call s:h("VimwikiColorTagBlue", { "fg": s:blue })
+call s:h("VimwikiColorTagPurple", { "fg": s:purple })
+call s:h("VimwikiDate", { "fg": s:dark_yellow, "gui": "bold" })
+call s:h("VimwikiHeader1", { "fg": s:green, "gui": "bold" })
+call s:h("VimwikiHeader2", { "fg": s:green, "gui": "bold" })
+call s:h("VimwikiHeader3", { "fg": s:green, "gui": "bold" })
+call s:h("VimwikiHeader4", { "fg": s:green, "gui": "bold" })
+call s:h("VimwikiHeader5", { "fg": s:green, "gui": "bold" })
+call s:h("VimwikiHeader6", { "fg": s:green, "gui": "bold" })
 
 " Must appear at the end of the file to work around this oddity:
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
