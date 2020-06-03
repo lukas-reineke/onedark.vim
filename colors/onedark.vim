@@ -648,7 +648,7 @@ call s:h("VimwikiColorTagPurple", { "fg": s:purple })
 call s:h("VimwikiDate", { "fg": s:dark_yellow, "gui": "bold" })
 call s:h("VimwikiHeaderChar", { "fg": s:comment_grey })
 call s:h("VimwikiHeader1", { "fg": s:green, "gui": "bold" })
-call s:h("VimwikiHeader2", { "fg": s:green, "gui": "bold" })
+call s:h("VimwikiHeader2", { "fg": s:yellow, "gui": "bold" })
 call s:h("VimwikiHeader3", { "fg": s:green, "gui": "bold" })
 call s:h("VimwikiHeader4", { "fg": s:green, "gui": "bold" })
 call s:h("VimwikiHeader5", { "fg": s:green, "gui": "bold" })
@@ -656,6 +656,7 @@ call s:h("VimwikiHeader6", { "fg": s:green, "gui": "bold" })
 
 call s:h("IndentGuide", { "fg": s:cursor_grey })
 
+call s:h("Whitespace", { "fg": s:cursor_grey })
 " Must appear at the end of the file to work around this oddity:
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
 set background=dark
