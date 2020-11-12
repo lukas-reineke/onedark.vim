@@ -209,12 +209,8 @@ call s:h("Conceal", {}) " placeholder characters substituted for concealed text 
 call s:h("Cursor", { "fg": s:black, "bg": s:blue }) " the character under the cursor
 call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
 call s:h("CursorColumn", { "bg": s:dark_black }) " the screen column that the cursor is in when 'cursorcolumn' is set
-if &diff || &foldmethod == 'diff'
-  " Don't change the background color in diff mode
-  call s:h("CursorLine", { "gui": "underline" }) " the screen line that the cursor is in when 'cursorline' is set
-else
-  call s:h("CursorLine", { "bg": s:dark_black }) " the screen line that the cursor is in when 'cursorline' is set
-endif
+call s:h("CursorLine", { "bg": s:dark_black }) " the screen line that the cursor is in when 'cursorline' is set
+" endif
 call s:h("Directory", { "fg": s:blue }) " directory names (and other special names in listings)
 call s:h("DiffAdd", { "bg": s:diff_green }) " diff mode: Added line
 call s:h("DiffChange", {}) " diff mode: Changed line
@@ -661,3 +657,14 @@ call s:h("Whitespace", { "fg": s:cursor_grey })
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
 set background=dark
 set winhighlight=NormalNC:WinNormalNC
+
+call s:h("EchoDocFloat", { "bg": s:dark_black })
+
+call s:h("LspDiagnosticsError", { "fg": s:dark_red, "gui": "bold" })
+call s:h("LspDiagnosticsWarning", { "fg": s:purple, "gui": "bold" })
+call s:h("LspDiagnosticsInformation", { "fg": s:cyan, "gui": "bold" })
+call s:h("LspDiagnosticsHint", { "fg": s:comment_grey, "gui": "bold" })
+
+call s:h("TSDefinitionUsage", { "gui": "bold" })
+call s:h("TSDefinition", { "gui": "bold" })
+
