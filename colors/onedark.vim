@@ -229,7 +229,7 @@ call s:h("ModeMsg", {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg", {}) " more-prompt
 call s:h("NonText", { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
 call s:h("Normal", { "fg": s:white }) " normal text
-call s:h("Pmenu", { "bg": s:special_grey, }) " Popup menu: normal item.
+call s:h("Pmenu", { "bg": s:dark_black, }) " Popup menu: normal item.
 call s:h("PmenuSel", { "fg": s:black, "bg": s:green }) " Popup menu: selected item.
 call s:h("PmenuSbar", { "bg": s:special_grey }) " Popup menu: scrollbar.
 call s:h("PmenuThumb", { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
@@ -242,8 +242,8 @@ call s:h("SpellBad", { "gui": "underline", "cterm": "underline" }) " Word that i
 call s:h("SpellCap", { "gui": "underline", "cterm": "underline" }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
 call s:h("SpellLocal", { "gui": "underline", "cterm": "underline" }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
 call s:h("SpellRare", { "gui": "underline", "cterm": "underline" }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
-call s:h("StatusLine", { "fg": s:white, "bg": s:black }) " status line of current window
-call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+call s:h("StatusLine", { "fg": s:white, "bg": s:dark_black }) " status line of current window
+call s:h("StatusLineNC", { "fg": s:comment_grey, "bg": s:dark_black }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 call s:h("TabLine", { "fg": s:comment_grey }) " tab pages line, not active tab page label
 call s:h("TabLineFill", {}) " tab pages line, where there are no labels
 call s:h("TabLineSel", { "fg": s:white }) " tab pages line, active tab page label
@@ -660,11 +660,14 @@ set winhighlight=NormalNC:WinNormalNC
 
 call s:h("EchoDocFloat", { "bg": s:dark_black })
 
-call s:h("LspDiagnosticsError", { "fg": s:dark_red, "gui": "bold" })
-call s:h("LspDiagnosticsWarning", { "fg": s:purple, "gui": "bold" })
-call s:h("LspDiagnosticsInformation", { "fg": s:cyan, "gui": "bold" })
-call s:h("LspDiagnosticsHint", { "fg": s:comment_grey, "gui": "bold" })
+call s:h("LspDiagnosticsDefaultError", { "fg": s:dark_red, "gui": "bold" })
+call s:h("LspDiagnosticsDefaultWarning", { "fg": s:purple, "gui": "bold" })
+call s:h("LspDiagnosticsDefaultInformation", { "fg": s:cyan, "gui": "bold" })
+call s:h("LspDiagnosticsDefaultHint", { "fg": s:comment_grey, "gui": "bold" })
 
 call s:h("TSDefinitionUsage", { "gui": "bold" })
 call s:h("TSDefinition", { "gui": "bold" })
+
+
+call s:h("GalaxyFileNameDirty", { "fg": s:red })
 
